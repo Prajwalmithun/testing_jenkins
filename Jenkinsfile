@@ -3,29 +3,21 @@ pipeline {
     
     stages {
         
-         stage('Initialize') {
-             steps {
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-                sh 'usermod -aG docker jenkins'
-             }
-        }
-        
         stage('build') {
             steps {
-                sh 'python --version'
+                /*sh 'python --version'*/
                 echo "We are building"
             }
         }
         stage('test') {
             steps {
-                sh 'python --version'
+                /*sh 'python --version'*/
                 echo "We are testing"
             }
         }
         stage('Deploy') {
             steps {
-                sh 'python --version'
+                /*sh 'python --version'*/
                 echo "We are deploying"
             }
         }
