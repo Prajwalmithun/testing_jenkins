@@ -2,6 +2,15 @@ pipeline {
     agent { any { image 'python:3.10.1-alpine' } }
     
     stages {
+        
+         stage('Initialize') {
+             steps {
+                def dockerHome = tool 'myDocker'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+                sh 'usermod -aG docker jenkins'
+             }
+        }
+        
         stage('build') {
             steps {
                 sh 'python --version'
